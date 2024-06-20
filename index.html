@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter Button </title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background: url("https://img.freepik.com/free-vector/winter-landscape-concept-hand-drawn_23-2148353900.jpg?w=740&t=st=1718868578~exp=1718869178~hmac=85ac1a3e4b79961e71d7769bf3d92fba64188285038fbbc7dbea27ece3e154af") no-repeat center center fixed;
+         background-size: cover;
+        }
+        
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+           
+        }
+
+        .counter-button {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .counter-button:hover {
+            background-color: #218838;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Counter Button with useState</h1>
+    <div className="container" id="root"> Will change </div>
+
+    <script type="text/babel">
+        let rootNode = ReactDOM.createRoot(document.getElementById('root'));
+
+        let useState = React.useState;
+
+        let CounterButton = () => {
+            let [count, setCount] = useState(27);
+
+            let handleClick = () => {
+                setCount(count + 1);
+            };
+
+            return (
+                <button className="counter-button" onClick={handleClick}>
+                    {count}
+                </button>
+            );
+        }
+
+        rootNode.render(<CounterButton />);
+    </script>
+</body>
+</html>
